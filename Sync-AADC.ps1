@@ -1,30 +1,29 @@
 ﻿Function Sync-AADC{
-[CmdletBinding()]
-param(
-[parameter(Mandatory=$true)][string]$AADCServer,
-$Credential
-
-)
 <#
-  .SYNOPSIS
-  Runs a delta sync of the Azure AD Connector (AADC) service. 
+.SYNOPSIS
+Runs a delta sync of the Azure AD Connector (AADC) service. 
 
-  .DESCRIPTION
-  Runs a delta sync of the Azure AD Connector (AADC) service. 
+.DESCRIPTION
+Runs a delta sync of the Azure AD Connector (AADC) service. 
   
-  .EXAMPLE
-   Run sync with verbose output
-   Sync-AADC -AADCServer server1.fabrikam.com -verbose
+.EXAMPLE
+Run sync with verbose output
+Sync-AADC -AADCServer server1.fabrikam.com -verbose
 
-  .SYNTAX
-  Sync-AADC [-AADCServer] <string>  [<CommonParameters>]
+.PARAMETER AADCServer
+Specify the AADC Server
 
-  .PARAMETER AADCServer
-  Specify the AADC Server
+.PARAMETER Credential
+Credential object used to connect to the Msol Service with user account management permissions
+#> 
 
-  .PARAMETER Credential
-  Credential object used to connect to the Msol Service with user account management permissions
-  #> 
+    [CmdletBinding()]
+    param(
+    [parameter(Mandatory=$true)][string]$AADCServer,
+    $Credential
+
+    )
+
 
     BEGIN{
      Write-Verbose 'Starting AADC synchronization process...'
